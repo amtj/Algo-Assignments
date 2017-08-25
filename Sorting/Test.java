@@ -1,7 +1,8 @@
 /*
 Run following commands to test included test files one and ten_thousand.
-$ java Test one
 $ java Test ten_thousand
+$ java Test hundred_thousand
+$ java Test one_million
 */
 
 import java.io.BufferedReader;
@@ -39,6 +40,7 @@ public class Test {
         MergeSort mergeSort = new MergeSort();
         MergeSortAux mergeSortAux = new MergeSortAux();
         MergeSortImproved mergeSortImproved = new MergeSortImproved();
+        MergeSortBottomUp mergeSortBottomUp = new MergeSortBottomUp();
 
         stopwatch.start();
 
@@ -63,6 +65,9 @@ public class Test {
         Integer[] inputArray7 = inputArray.clone();
         mergeSortImproved.sort(inputArray7);
         isSorted(inputArray7);
+        Integer[] inputArray8 = inputArray.clone();
+        mergeSortBottomUp.sort(inputArray8);
+        isSorted(inputArray8);
 
         stopwatch.stop();
         long afterUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
@@ -71,7 +76,7 @@ public class Test {
         // System.out.println(inputArray[i]);
 
         System.out.println("Time   = " + stopwatch.getTime() + "ms");
-        
+
         // Dividing to convert Bytes into KB.
         System.out.println("Memory = " + actualMemUsed/1024 + "KB");
 

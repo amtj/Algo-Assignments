@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MergeSortImproved {
 
     public static final int CUTOFF = 7;
@@ -19,13 +21,13 @@ public class MergeSortImproved {
         sort(inputArg, inputAux, start, mid);
         sort(inputArg, inputAux, mid + 1, end);
         if (!isLessThan(inputArg[mid + 1], inputArg[mid])) return;
-        merge(inputArg, inputAux, start, mid, end);
+        merge(inputAux, inputArg, start, mid, end);
     }
 
     // Merging into single array
     public static void merge(Comparable[] inputArg, Comparable[] inputAux, int start, int mid, int end) {
 
-        inputAux = inputArg.clone();
+        inputAux = Arrays.copyOf(inputArg, inputArg.length);
         int i = start;
         int j = mid + 1;
         for (int k = start; k <= end; k++) {

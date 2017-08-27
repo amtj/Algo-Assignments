@@ -1,31 +1,39 @@
 public class MergeSort {
 
+    private static Comparable[] aux;
+
     public static void sort(Comparable[] inputArg) {
-        sort(inputArg, 0, inputArg.length - 1);
+
+        aux = new Comparable[inputArg.length];
+        sort(inputArg, aux, 0, inputArg.length - 1);
     }
 
-    public static void sort(Comparable[] inputArg, int start, int end) {
+    public static void sort(Comparable[] inputArg, Comparable[] inputAux, int start, int end) {
 
         if (start >= end) return;
 
         int mid = start + (end - start) / 2;
 
-        sort(inputArg, start, mid);
-        sort(inputArg, mid + 1, end);
-        merge(inputArg, start, mid, end);
+        sort(inputArg, inputAux, start, mid);
+        sort(inputArg, inputAux, mid + 1, end);
+        merge(inputArg, inputAux, start, mid, end);
     }
 
     // Merging into single array
-    public static void merge(Comparable[] inputArg, int start, int mid, int end) {
+    public static void merge(Comparable[] inputArg, Comparable[] inputAux, int start, int mid, int end) {
 
-        Comparable[] input = inputArg.clone();
+        for (int k = start; k <= end; k++) {
+            inputAux[k] = inputArg[k];
+        }
+
         int i = start;
         int j = mid + 1;
+
         for (int k = start; k <= end; k++) {
-            if (i > mid)                             inputArg[k] = input[j++];
-            else if (j > end)                        inputArg[k] = input[i++];
-            else if (isLessThan(input[j], input[i])) inputArg[k] = input[j++];
-            else                                     inputArg[k] = input[i++];
+            if      (i > mid)                              inputArg[k] = inputAux[j++];
+            else if (j > end)                              inputArg[k] = inputAux[i++];
+            else if (isLessThan(inputAux[j], inputAux[i])) inputArg[k] = inputAux[j++];
+            else                                           inputArg[k] = inputAux[i++];
         }
     }
 

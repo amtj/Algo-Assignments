@@ -1,7 +1,7 @@
 /*
 Run following commands to test included test files one and ten_thousand.
-$java Test one
-$java Test ten_thousand
+$ java Test one
+$ java Test ten_thousand
 */
 
 // import java.io.*;

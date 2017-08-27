@@ -1,5 +1,7 @@
 public class MergeSortImproved {
 
+    public static final int CUTOFF = 7;
+
     private static Comparable[] aux;
 
     public static void sort(Comparable[] inputArg) {
@@ -10,7 +12,10 @@ public class MergeSortImproved {
 
     public static void sort(Comparable[] inputArg, Comparable[] inputAux, int start, int end) {
 
-        if (start >= end) return;
+        if (start + CUTOFF - 1 >= end) {
+            insertionSort(inputArg, start, end);
+            return;
+        }
 
         int mid = start + (end - start) / 2;
 
@@ -40,5 +45,24 @@ public class MergeSortImproved {
 
     public static boolean isLessThan(Comparable arg1, Comparable arg2) {
         return arg1.compareTo(arg2) < 0;
+    }
+
+    public static void swap(Comparable[] inputArg, int arg1, int arg2) {
+        Comparable temp = inputArg[arg1];
+        inputArg[arg1] = inputArg[arg2];
+        inputArg[arg2] = temp;
+    }
+
+    public static void insertionSort(Comparable[] inputArg, int start, int end) {
+        int size = end - start + 1;
+
+        for (int i = start; i < start + size; i++) {
+            for (int j = i; j > start; j--) {
+                if (isLessThan(inputArg[j], inputArg[j - 1])) {
+                    swap(inputArg, j, j - 1);
+                }
+                else break;
+            }
+        }
     }
 }

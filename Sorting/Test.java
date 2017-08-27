@@ -32,89 +32,146 @@ public class Test {
         }
 
         long beforeUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-
-        // RandomShuffle randomShuffle = new RandomShuffle();
-
-        SelectionSort selectionSort = new SelectionSort();
-        Integer[] inputArray1 = Arrays.copyOf(inputArray, length);
-        Stopwatch stopwatch1 = new Stopwatch();
-        stopwatch1.start();
-        selectionSort.sort(inputArray1);
-        stopwatch1.stop();
-        System.out.println("Time SelectionSort            = " + stopwatch1.getTime() + "ms");
-        isSorted(inputArray1);
-
-        SelectionSortTwoThreaded selectionSortTwoThreaded = new SelectionSortTwoThreaded();
-        Integer[] inputArray2 = Arrays.copyOf(inputArray, length);
-        Stopwatch stopwatch2 = new Stopwatch();
-        stopwatch2.start();
-        selectionSortTwoThreaded.sort(inputArray2);
-        stopwatch2.stop();
-        System.out.println("Time SelectionSortTwoThreaded = " + stopwatch2.getTime() + "ms");
-        isSorted(inputArray2);
-
-        InsertionSort insertionSort = new InsertionSort();
-        Integer[] inputArray3 = Arrays.copyOf(inputArray, length);
-        Stopwatch stopwatch3 = new Stopwatch();
-        stopwatch3.start();
-        insertionSort.sort(inputArray3);
-        stopwatch3.stop();
-        System.out.println("Time InsertionSort            = " + stopwatch3.getTime() + "ms");
-        isSorted(inputArray3);
-
-        ShellSort shellSort = new ShellSort();
-        Integer[] inputArray4 = Arrays.copyOf(inputArray, length);
-        Stopwatch stopwatch4 = new Stopwatch();
-        stopwatch4.start();
-        shellSort.sort(inputArray4);
-        stopwatch4.stop();
-        System.out.println("Time ShellSort                = " + stopwatch4.getTime() + "ms");
-        isSorted(inputArray4);
-
-        MergeSort mergeSort = new MergeSort();
-        Integer[] inputArray5 = Arrays.copyOf(inputArray, length);
-        Stopwatch stopwatch5 = new Stopwatch();
-        stopwatch5.start();
-        mergeSort.sort(inputArray5);
-        stopwatch5.stop();
-        System.out.println("Time MergeSort                = " + stopwatch5.getTime() + "ms");
-        isSorted(inputArray5);
-
-        MergeSortImproved mergeSortImproved = new MergeSortImproved();
-        Integer[] inputArray6 = Arrays.copyOf(inputArray, length);
-        Stopwatch stopwatch6 = new Stopwatch();
-        stopwatch6.start();
-        mergeSortImproved.sort(inputArray6);
-        stopwatch6.stop();
-        System.out.println("Time MergeSortImproved        = " + stopwatch6.getTime() + "ms");
-        isSorted(inputArray6);
-
-        MergeSortBottomUp mergeSortBottomUp = new MergeSortBottomUp();
-        Integer[] inputArray7 = Arrays.copyOf(inputArray, length);
-        Stopwatch stopwatch7 = new Stopwatch();
-        stopwatch7.start();
-        mergeSortBottomUp.sort(inputArray7);
-        stopwatch7.stop();
-        System.out.println("Time MergeSortBottomUp        = " + stopwatch7.getTime() + "ms");
-        isSorted(inputArray7);
-
-        QuickSort quickSort = new QuickSort();
-        Integer[] inputArray8 = Arrays.copyOf(inputArray, length);
-        Stopwatch stopwatch8 = new Stopwatch();
-        stopwatch8.start();
-        quickSort.sort(inputArray8);
-        stopwatch8.stop();
-        System.out.println("Time QuickSort                = " + stopwatch8.getTime() + "ms");
-        isSorted(inputArray8);
-
         long afterUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
         long actualMemUsed = afterUsedMem-beforeUsedMem;
 
-        // System.out.println(inputArray[i]);
+        // RandomShuffle randomShuffle = new RandomShuffle();
 
+        Stopwatch stopwatch1 = new Stopwatch();
+        beforeUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        SelectionSort selectionSort = new SelectionSort();
+        Integer[] inputArray1 = Arrays.copyOf(inputArray, length);
+        stopwatch1.start();
+        selectionSort.sort(inputArray1);
+        stopwatch1.stop();
+        afterUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        actualMemUsed = afterUsedMem-beforeUsedMem;
+        isSorted(inputArray1);
+        System.out.println("Time SelectionSort            = " + stopwatch1.getTime() + "ms");
         // Dividing to convert Bytes into KB.
-        System.out.println("Total Memory Used             = " + actualMemUsed/1024 + "KB");
+        System.out.println("Memory                        = " + actualMemUsed/1024 + "KB");
+        System.out.println();
 
+        Stopwatch stopwatch2 = new Stopwatch();
+        beforeUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        SelectionSortTwoThreaded selectionSortTwoThreaded = new SelectionSortTwoThreaded();
+        Integer[] inputArray2 = Arrays.copyOf(inputArray, length);
+        stopwatch2.start();
+        selectionSortTwoThreaded.sort(inputArray2);
+        stopwatch2.stop();
+        afterUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        actualMemUsed = afterUsedMem-beforeUsedMem;
+        isSorted(inputArray2);
+        System.out.println("Time SelectionSortTwoThreaded = " + stopwatch2.getTime() + "ms");
+        // Dividing to convert Bytes into KB.
+        System.out.println("Memory                        = " + actualMemUsed/1024 + "KB");
+        System.out.println();
+
+        Stopwatch stopwatch3 = new Stopwatch();
+        beforeUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        InsertionSort insertionSort = new InsertionSort();
+        Integer[] inputArray3 = Arrays.copyOf(inputArray, length);
+        stopwatch3.start();
+        insertionSort.sort(inputArray3);
+        stopwatch3.stop();
+        afterUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        actualMemUsed = afterUsedMem-beforeUsedMem;
+        isSorted(inputArray3);
+        System.out.println("Time InsertionSort            = " + stopwatch3.getTime() + "ms");
+        // Dividing to convert Bytes into KB.
+        System.out.println("Memory                        = " + actualMemUsed/1024 + "KB");
+        System.out.println();
+
+        Stopwatch stopwatch4 = new Stopwatch();
+        beforeUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        ShellSort shellSort = new ShellSort();
+        Integer[] inputArray4 = Arrays.copyOf(inputArray, length);
+        stopwatch4.start();
+        shellSort.sort(inputArray4);
+        stopwatch4.stop();
+        afterUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        actualMemUsed = afterUsedMem-beforeUsedMem;
+        isSorted(inputArray4);
+        System.out.println("Time ShellSort                = " + stopwatch4.getTime() + "ms");
+        // Dividing to convert Bytes into KB.
+        System.out.println("Memory                        = " + actualMemUsed/1024 + "KB");
+        System.out.println();
+
+        Stopwatch stopwatch5 = new Stopwatch();
+        beforeUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        MergeSort mergeSort = new MergeSort();
+        Integer[] inputArray5 = Arrays.copyOf(inputArray, length);
+        stopwatch5.start();
+        mergeSort.sort(inputArray5);
+        stopwatch5.stop();
+        afterUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        actualMemUsed = afterUsedMem-beforeUsedMem;
+        isSorted(inputArray5);
+        System.out.println("Time MergeSort                = " + stopwatch5.getTime() + "ms");
+        // Dividing to convert Bytes into KB.
+        System.out.println("Memory                        = " + actualMemUsed/1024 + "KB");
+        System.out.println();
+
+        Stopwatch stopwatch6 = new Stopwatch();
+        beforeUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        MergeSortImproved mergeSortImproved = new MergeSortImproved();
+        Integer[] inputArray6 = Arrays.copyOf(inputArray, length);
+        stopwatch6.start();
+        mergeSortImproved.sort(inputArray6);
+        stopwatch6.stop();
+        afterUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        actualMemUsed = afterUsedMem-beforeUsedMem;
+        isSorted(inputArray6);
+        System.out.println("Time MergeSortImproved        = " + stopwatch6.getTime() + "ms");
+        // Dividing to convert Bytes into KB.
+        System.out.println("Memory                        = " + actualMemUsed/1024 + "KB");
+        System.out.println();
+
+        Stopwatch stopwatch7 = new Stopwatch();
+        beforeUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        MergeSortBottomUp mergeSortBottomUp = new MergeSortBottomUp();
+        Integer[] inputArray7 = Arrays.copyOf(inputArray, length);
+        stopwatch7.start();
+        mergeSortBottomUp.sort(inputArray7);
+        stopwatch7.stop();
+        afterUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        actualMemUsed = afterUsedMem-beforeUsedMem;
+        isSorted(inputArray7);
+        System.out.println("Time MergeSortBottomUp        = " + stopwatch7.getTime() + "ms");
+        // Dividing to convert Bytes into KB.
+        System.out.println("Memory                        = " + actualMemUsed/1024 + "KB");
+        System.out.println();
+
+        Stopwatch stopwatch8 = new Stopwatch();
+        beforeUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        QuickSort quickSort = new QuickSort();
+        Integer[] inputArray8 = Arrays.copyOf(inputArray, length);
+        stopwatch8.start();
+        quickSort.sort(inputArray8);
+        stopwatch8.stop();
+        afterUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        actualMemUsed = afterUsedMem-beforeUsedMem;
+        isSorted(inputArray8);
+        System.out.println("Time QuickSort                = " + stopwatch8.getTime() + "ms");
+        // Dividing to convert Bytes into KB.
+        System.out.println("Memory                        = " + actualMemUsed/1024 + "KB");
+        System.out.println();
+
+        Stopwatch stopwatch9 = new Stopwatch();
+        beforeUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        QuickSortImproved quickSortImproved = new QuickSortImproved();
+        Integer[] inputArray9 = Arrays.copyOf(inputArray, length);
+        stopwatch9.start();
+        quickSortImproved.sort(inputArray9);
+        stopwatch9.stop();
+        afterUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        actualMemUsed = afterUsedMem-beforeUsedMem;
+        isSorted(inputArray9);
+        System.out.println("Time QuickSortImproved        = " + stopwatch9.getTime() + "ms");
+        // Dividing to convert Bytes into KB.
+        System.out.println("Memory                        = " + actualMemUsed/1024 + "KB");
+
+        // System.out.println(inputArray[i]);
     }
 
     public static void isSorted(Integer[] inputArg) {

@@ -1,15 +1,15 @@
 public class QuickSort {
 
     public static void sort(Comparable[] inputArg) {
-        int length = inputArg.length;
-        int randomInt = (int) Math.floor(Math.random() * length);
-        swap(inputArg, 0, randomInt);
 
-        sort(inputArg, 0, length - 1);
+        sort(inputArg, 0, inputArg.length - 1);
     }
 
     public static void sort(Comparable[] inputArg, int start, int end) {
         if (end <= start) return;
+
+        int randomInt = (int) (Math.floor(Math.random() * (end - start + 1))) + start;
+        swap(inputArg, start, randomInt);
 
         int j = partition(inputArg, start, end);
         sort(inputArg, start, j - 1);

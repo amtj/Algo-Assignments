@@ -1,8 +1,12 @@
 /*
-Run following commands to test included test files one and ten_thousand.
-$ java Test ten_thousand
-$ java Test hundred_thousand
-$ java Test one_million
+Run following commands to test included test cases.
+$ java Test test-cases/ten
+$ java Test test-cases/hundred
+$ java Test test-cases/thousand
+$ java Test test-cases/ten_thousand
+$ java Test test-cases/hundred_thousand
+$ java Test test-cases/one_million
+$ java Test test-cases/one_million_few_distinct
 */
 
 import java.io.BufferedReader;
@@ -168,6 +172,21 @@ public class Test {
         actualMemUsed = afterUsedMem-beforeUsedMem;
         isSorted(inputArray9);
         System.out.println("Time QuickSortImproved        = " + stopwatch9.getTime() + "ms");
+        // Dividing to convert Bytes into KB.
+        System.out.println("Memory                        = " + actualMemUsed/1024 + "KB");
+        System.out.println();
+
+        Stopwatch stopwatch10 = new Stopwatch();
+        beforeUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        QuickSortThreeWay quickSortThreeWay = new QuickSortThreeWay();
+        Integer[] inputArray10 = Arrays.copyOf(inputArray, length);
+        stopwatch10.start();
+        quickSortThreeWay.sort(inputArray10);
+        stopwatch10.stop();
+        afterUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        actualMemUsed = afterUsedMem-beforeUsedMem;
+        isSorted(inputArray10);
+        System.out.println("Time QuickSortThreeWay        = " + stopwatch10.getTime() + "ms");
         // Dividing to convert Bytes into KB.
         System.out.println("Memory                        = " + actualMemUsed/1024 + "KB");
 

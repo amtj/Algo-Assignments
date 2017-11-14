@@ -11,4 +11,5 @@
 
 ### Not so basic problems:
 52. [0-1 Knapsack Problem](https://github.com/amtj/CS501-Algorithms/tree/master/Dynamic-Programming/52.Zero-One-Knapsack-Problem)
+57. [Longest Palindromic Subsequence](https://github.com/amtj/CS501-Algorithms/tree/master/Dynamic-Programming/57.Longest-Palindromic-Subsequence)
 58. [Egg Dropping Puzzle](https://github.com/amtj/CS501-Algorithms/tree/master/Dynamic-Programming/58.Egg-Dropping-Puzzle)

@@ -9,16 +9,16 @@
 public class Test {
     public static void main(String[] args) {
 
-        Fibonacci fibonacci = new Fibonacci();
+        FibonacciNumbers fibonacciNumbers = new FibonacciNumbers();
 
         // Assert that fib(9) is 34.
-        assert (fibonacci.fib(9) == 34): "Test Failed";
+        assert (fibonacciNumbers.fib(9) == 34): "Test Failed";
 
         // Assert that fib(19) is 4181.
-        assert (fibonacci.fib(19) == 4181): "Test Failed";
+        assert (fibonacciNumbers.fib(19) == 4181): "Test Failed";
 
         // Assert that fib(29) is 514229.
-        assert (fibonacci.fib(29) == 514229): "Test Failed";
+        assert (fibonacciNumbers.fib(29) == 514229): "Test Failed";
 
         System.out.println("Test Passed");
     }

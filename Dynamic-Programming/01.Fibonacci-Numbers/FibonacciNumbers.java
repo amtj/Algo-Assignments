@@ -2,7 +2,7 @@
 // then fib() should return 0. If n = 1, then it should return 1. For n > 1, it
 // should return F(n-1) + F(n-2).
 
-class Fibonacci {
+class FibonacciNumbers {
 
     int fib(int n) {
         int fib0 = 0;
